@@ -1,15 +1,11 @@
 <?php
+use Models\DeletePostModel;
+use Models\Request;
 
 include('../imports.php');
 
-// delete_post.php?id=12345
+use Controllers\DeletePostController;
 
-$id = $_GET['id'] ?? 0;
+$view = (new DeletePostController(new DeletePostModel()))->run(new Request($_POST, $_GET));
 
-if (empty($id)) {
-    die('');
-}
-
-(new Post(new DatabaseEngine()))->setId($id)->delete();
-
-Post::loadPost(new DatabaseEngine(), 12345);
+echo $view->toString();

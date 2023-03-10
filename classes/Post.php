@@ -52,10 +52,4 @@ class Post {
         return $this;
     }
 
-    public static function loadPost(DatabaseEngine $databaseEngine, int $id): Post {
-        // read a file from db -> dbEngine should return json from file
-        // this func shpukd then parse that json and init a Post obj
-        // return that Post obj
-    }
-
 }
